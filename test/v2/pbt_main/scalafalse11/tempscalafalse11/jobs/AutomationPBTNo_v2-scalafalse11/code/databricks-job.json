@@ -1,0 +1,82 @@
+{
+  "fabric_id" : "3",
+  "components" : [ {
+    "PipelineComponent" : {
+      "path" : "dbfs:/FileStore/prophecy/artifacts/performance/cp/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/AutomationPBTNo_v2-scalafalse11.jar",
+      "nodeName" : "AutomationPBTNo_v2-scalafalse11",
+      "id" : "Y9n304sMB16lFWOyGumRk",
+      "language" : "scala",
+      "pipelineId" : "pipelines/AutomationPBTNo_v2-scalafalse11"
+    }
+  } ],
+  "request" : {
+    "format" : "MULTI_TASK",
+    "name" : "AutomationPBTNo_v2-scalafalse11",
+    "job_clusters" : [ ],
+    "email_notifications" : {
+      "on_start" : [ "abhisheks+e2etests@prophecy.io" ],
+      "on_failure" : [ "abhisheks+e2etests@prophecy.io" ]
+    },
+    "tasks" : [ {
+      "task_key" : "AutomationPBTNo_v2-scalafalse11",
+      "new_cluster" : {
+        "spark_version" : "14.3.x-scala2.12",
+        "node_type_id" : "m7gd.large",
+        "num_workers" : 0,
+        "custom_tags" : {
+          "ResourceClass" : "SingleNode"
+        },
+        "enable_elastic_disk" : false,
+        "spark_conf" : {
+          "spark.databricks.cluster.profile" : "singleNode",
+          "spark.master" : "local[*, 4]",
+          "spark.prophecy.metadata.fabric.id" : "3",
+          "spark.prophecy.metadata.job.uri" : "__PROJECT_ID_PLACEHOLDER__/jobs/AutomationPBTNo_v2-scalafalse11",
+          "spark.prophecy.metadata.is.interactive.run" : "false",
+          "spark.prophecy.project.id" : "__PROJECT_ID_PLACEHOLDER__",
+          "spark.prophecy.tasks" : "H4sIAAAAAAAAAKtWciwtyc9NLMnMzwtwCvHLjy8z0i1OTsxJTEvMKU41NFSyUirILEjNycxLLdYnpLYWAJH5wzVPAAAA",
+          "spark.prophecy.metadata.job.branch" : "__PROJECT_RELEASE_VERSION_PLACEHOLDER__",
+          "spark.prophecy.metadata.url" : "__PROPHECY_URL_PLACEHOLDER__",
+          "spark.prophecy.execution.metrics.disabled" : "false",
+          "spark.prophecy.execution.service.url" : "wss://performance.cloud.prophecy.io/execution/eventws",
+          "spark.databricks.isv.product" : "prophecy"
+        },
+        "spark_env_vars" : {
+          "PYSPARK_PYTHON" : "/databricks/python3/bin/python3"
+        },
+        "runtime_engine" : "STANDARD",
+        "aws_attributes" : {
+          "first_on_demand" : 1,
+          "availability" : "SPOT_WITH_FALLBACK",
+          "zone_id" : "auto",
+          "spot_bid_price_percent" : 100
+        },
+        "data_security_mode" : "SINGLE_USER"
+      },
+      "spark_jar_task" : {
+        "main_class_name" : "io.prophecy.pipelines.automationpbtno_v2scalafalse11.Main",
+        "parameters" : [ "-i", "default", "-O", "{}" ]
+      },
+      "libraries" : [ {
+        "maven" : {
+          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.5.0-8.8.0-SNAPSHOT",
+          "repo" : "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+        }
+      }, {
+        "jar" : "dbfs:/FileStore/prophecy/artifacts/performance/cp/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/AutomationPBTNo_v2-scalafalse11.jar"
+      } ],
+      "email_notifications" : { }
+    } ],
+    "max_concurrent_runs" : 1,
+    "schedule" : {
+      "quartz_cron_expression" : "0 0 0 1/1 * ? 2090",
+      "timezone_id" : "UTC",
+      "pause_status" : "UNPAUSED"
+    }
+  },
+  "cluster_mode" : {
+    "clusterMode" : "Multi"
+  },
+  "secret_scope" : "prophecy_jobs_6",
+  "sorted_processes" : [ "Y9n304sMB16lFWOyGumRk" ]
+}
